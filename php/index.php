@@ -23,6 +23,6 @@ echo '</pre>';
 
 echo '<pre>';
 var_dump(
-	$client->get('tuhao.account.balance');
+	$client->get('tuhao.account.balance')
 );
 echo '</pre>';

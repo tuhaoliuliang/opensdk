@@ -1,0 +1,23 @@
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\KDTApiKit\bin\Debug\KDTApiKit.exe.config
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\KDTApiKit\bin\Debug\KDTApiKit.exe
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\KDTApiKit\bin\Debug\KDTApiKit.pdb
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\KDTApiKit\obj\x86\Debug\KDTApiKit.exe
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\KDTApiKit\obj\x86\Debug\KDTApiKit.pdb
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\ThApiKit\bin\Debug\ThApiKit.exe.config
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\ThApiKit\bin\Debug\ThApiKit.exe
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\ThApiKit\bin\Debug\ThApiKit.pdb
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\ThApiKit\obj\x86\Debug\ThApiKit.exe
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\ThApiKit\obj\x86\Debug\ThApiKit.pdb
+D:\Users\sun.yana\Documents\Tencent Files\364758066\FileRecv\c#-sdk\c#-sdk\ThApiKit\obj\x86\Debug\ThApiKit.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\c#-sdk\c#-sdk\c#-sdk\ThApiKit\bin\Debug\ThApiKit.exe.config
+C:\Users\user\Desktop\c#-sdk\c#-sdk\c#-sdk\ThApiKit\bin\Debug\ThApiKit.exe
+C:\Users\user\Desktop\c#-sdk\c#-sdk\c#-sdk\ThApiKit\bin\Debug\ThApiKit.pdb
+C:\Users\user\Desktop\c#-sdk\c#-sdk\c#-sdk\ThApiKit\obj\x86\Debug\ThApiKit.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\c#-sdk\c#-sdk\c#-sdk\ThApiKit\obj\x86\Debug\ThApiKit.exe
+C:\Users\user\Desktop\c#-sdk\c#-sdk\c#-sdk\ThApiKit\obj\x86\Debug\ThApiKit.pdb
+C:\Users\user\Desktop\c#-sdk\c#-sdk\ThApiKit\bin\Debug\ThApiKit.exe.config
+C:\Users\user\Desktop\c#-sdk\c#-sdk\ThApiKit\obj\x86\Debug\ThApiKit.exe
+C:\Users\user\Desktop\c#-sdk\c#-sdk\ThApiKit\obj\x86\Debug\ThApiKit.pdb
+C:\Users\user\Desktop\c#-sdk\c#-sdk\ThApiKit\bin\Debug\ThApiKit.exe
+C:\Users\user\Desktop\c#-sdk\c#-sdk\ThApiKit\bin\Debug\ThApiKit.pdb
+C:\Users\user\Desktop\c#-sdk\c#-sdk\ThApiKit\obj\x86\Debug\ThApiKit.csprojResolveAssemblyReference.cache

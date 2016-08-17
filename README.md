@@ -3,7 +3,7 @@
 
 
 ## AppId / AppSecret 签名通讯协议
-此方式开发快速简单，我们已经为每个账户创建了一份AppId和AppSecret，可以直接从网站后台获得（[点击这里](https://open.tuhaoliuliang.cn/)获得），配合 SDK 即可进行对接；
+此方式开发快速简单，我们已经为每个账户创建了一份AppId和AppSecret，可以直接从网站后台获得（[点击这里](https://open.tuhaoliuliang.cn/shop/company/developer)），配合 SDK 即可进行对接；
 
 ####定义：
 

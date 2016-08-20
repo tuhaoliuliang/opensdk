@@ -50,8 +50,7 @@ public class ThApiClient {
     public HttpResponse get(String method) throws Exception {
         String url = apiEntry + getParamStr(method, new HashMap<String, String>());
 
-        HttpClientBuilder builder = HttpClientBuilder.create();
-        HttpClient client = builder.build();
+        HttpClient client = new SSLClient();
         HttpGet request = new HttpGet(url);
         request.addHeader("User-Agent", DefaultUserAgent);
 

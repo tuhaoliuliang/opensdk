@@ -47,9 +47,7 @@ public class ThApiProtocol {
     }
 
     private static String hash(String signContent){
-    	System.out.println(signContent);
-    	String hashResult = DigestUtils.md5Hex(signContent);
 
-        return hashResult;
+        return DigestUtils.md5Hex(signContent);
     }
 }

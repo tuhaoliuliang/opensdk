@@ -1,12 +1,12 @@
 package com.tuhao.api;
 
-import java.io.File;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
+import com.tuhao.api.exception.TuhaoException;
+import com.tuhao.api.utils.Preconditions;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -28,8 +28,8 @@ public class ThApiClient {
     private String appSecret;
 
     public ThApiClient(String appId, String appSecret) throws Exception {
-        if (appId == null || appSecret == null || "".equals(appId) || "".equals(appSecret)) {
-            throw new Exception("appId 和 appSecret 不能为空");
+        if (!Preconditions.isNotBlank(appId,appSecret)) {
+            throw new TuhaoException("appId 和 appSecret 不能为空");
         }
 
         this.appId = appId;
@@ -89,13 +89,15 @@ public class ThApiClient {
     private String buildParamStr(HashMap<String, String> param) {
         String paramStr = "";
         Object[] keyArray = param.keySet().toArray();
-        for (int i = 0; i < keyArray.length; i++) {
-            String key = (String) keyArray[i];
+        if (Preconditions.isNotBlank(keyArray)) {
+            for (int i = 0; i < keyArray.length; i++) {
+                String key = (String) keyArray[i];
 
-            if (0 == i) {
-                paramStr += (key + "=" + param.get(key));
-            } else {
-                paramStr += ("&" + key + "=" + param.get(key));
+                if (0 == i) {
+                    paramStr += (key + "=" + param.get(key));
+                } else {
+                    paramStr += ("&" + key + "=" + param.get(key));
+                }
             }
         }
 
@@ -105,12 +107,15 @@ public class ThApiClient {
 
     private HashMap<String, String> buildCompleteParams(String method, HashMap<String, String> parames) throws Exception {
         HashMap<String, String> commonParams = getCommonParams(method);
-        for (String key : parames.keySet()) {
-            if (commonParams.containsKey(key)) {
-                throw new Exception("参数名冲突");
-            }
 
-            commonParams.put(key, parames.get(key));
+        if (Preconditions.isNotBlank(parames)) {
+            for (String key : parames.keySet()) {
+                if (commonParams.containsKey(key)) {
+                    throw new Exception("参数名冲突");
+                }
+
+                commonParams.put(key, parames.get(key));
+            }
         }
 
         commonParams.put(ThApiProtocol.SIGN_KEY, ThApiProtocol.sign(appSecret, commonParams));

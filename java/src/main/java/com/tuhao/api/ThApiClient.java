@@ -11,14 +11,10 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntity;
-import org.apache.http.entity.mime.content.ContentBody;
-import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.HttpClientBuilder;
 
 public class ThApiClient {
-	private static final String Version = "1.0";
+    private static final String Version = "1.0";
 
     private static final String apiEntry = "https://open.tuhaoliuliang.cn/api/entry?";
 
@@ -31,8 +27,8 @@ public class ThApiClient {
     private String appId;
     private String appSecret;
 
-    public ThApiClient(String appId, String appSecret) throws Exception{
-        if (appId == null || appSecret == null || "".equals(appId) || "".equals(appSecret)){
+    public ThApiClient(String appId, String appSecret) throws Exception {
+        if (appId == null || appSecret == null || "".equals(appId) || "".equals(appSecret)) {
             throw new Exception("appId 和 appSecret 不能为空");
         }
 
@@ -40,41 +36,41 @@ public class ThApiClient {
         this.appSecret = appSecret;
     }
 
-    public HttpResponse get(String method, HashMap<String,String> parames) throws Exception{
+    public HttpResponse get(String method, HashMap<String, String> parames) throws Exception {
         String url = apiEntry + getParamStr(method, parames);
 
         HttpClient client = new SSLClient();
-		HttpGet request = new HttpGet(url);
-		request.addHeader("User-Agent", DefaultUserAgent);
+        HttpGet request = new HttpGet(url);
+        request.addHeader("User-Agent", DefaultUserAgent);
 
-		HttpResponse response = client.execute(request);
-		return response;
+        HttpResponse response = client.execute(request);
+        return response;
     }
 
-    public HttpResponse get(String method) throws Exception{
+    public HttpResponse get(String method) throws Exception {
         String url = apiEntry + getParamStr(method, new HashMap<String, String>());
 
         HttpClientBuilder builder = HttpClientBuilder.create();
-        HttpClient client =  builder.build();
-		HttpGet request = new HttpGet(url);
-		request.addHeader("User-Agent", DefaultUserAgent);
+        HttpClient client = builder.build();
+        HttpGet request = new HttpGet(url);
+        request.addHeader("User-Agent", DefaultUserAgent);
 
-		HttpResponse response = client.execute(request);
-		return response;
+        HttpResponse response = client.execute(request);
+        return response;
     }
 
-    public HttpResponse post(String method, HashMap<String, String> parames) throws Exception{
-    	String url = apiEntry + getParamStr(method, parames);
+    public HttpResponse post(String method, HashMap<String, String> parames) throws Exception {
+        String url = apiEntry + getParamStr(method, parames);
 
-    	HttpClient client = new SSLClient();
-    	HttpPost httppost = new HttpPost(url);
-    	httppost.addHeader("User-Agent", DefaultUserAgent);
+        HttpClient client = new SSLClient();
+        HttpPost httppost = new HttpPost(url);
+        httppost.addHeader("User-Agent", DefaultUserAgent);
 
         HttpResponse response = client.execute(httppost);
         return response;
     }
 
-    public String getParamStr(String method, HashMap<String, String> parames){
+    public String getParamStr(String method, HashMap<String, String> parames) {
         String str = "";
         try {
             str = URLEncoder.encode(buildParamStr(buildCompleteParams(method, parames)), "UTF-8")
@@ -90,16 +86,15 @@ public class ThApiClient {
         return str;
     }
 
-    private String buildParamStr(HashMap<String, String> param){
+    private String buildParamStr(HashMap<String, String> param) {
         String paramStr = "";
         Object[] keyArray = param.keySet().toArray();
-        for(int i = 0; i < keyArray.length; i++){
-            String key = (String)keyArray[i];
+        for (int i = 0; i < keyArray.length; i++) {
+            String key = (String) keyArray[i];
 
-            if(0 == i){
+            if (0 == i) {
                 paramStr += (key + "=" + param.get(key));
-            }
-            else{
+            } else {
                 paramStr += ("&" + key + "=" + param.get(key));
             }
         }
@@ -108,22 +103,22 @@ public class ThApiClient {
     }
 
 
-    private HashMap<String, String> buildCompleteParams(String method, HashMap<String, String> parames) throws Exception{
+    private HashMap<String, String> buildCompleteParams(String method, HashMap<String, String> parames) throws Exception {
         HashMap<String, String> commonParams = getCommonParams(method);
         for (String key : parames.keySet()) {
-			if(commonParams.containsKey(key)){
-				throw new Exception("参数名冲突");
-			}
+            if (commonParams.containsKey(key)) {
+                throw new Exception("参数名冲突");
+            }
 
-			commonParams.put(key, parames.get(key));
-		}
+            commonParams.put(key, parames.get(key));
+        }
 
         commonParams.put(ThApiProtocol.SIGN_KEY, ThApiProtocol.sign(appSecret, commonParams));
         return commonParams;
     }
 
-    private HashMap<String, String> getCommonParams(String method){
-       HashMap<String, String> parames = new HashMap<String, String>();
+    private HashMap<String, String> getCommonParams(String method) {
+        HashMap<String, String> parames = new HashMap<String, String>();
         parames.put(ThApiProtocol.APP_ID_KEY, appId);
         parames.put(ThApiProtocol.METHOD_KEY, method);
         parames.put(ThApiProtocol.TIMESTAMP_KEY, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));

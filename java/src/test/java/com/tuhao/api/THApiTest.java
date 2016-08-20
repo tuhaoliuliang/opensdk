@@ -1,4 +1,4 @@
-package com.tuhao.test;
+package com.tuhao.api;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -43,7 +43,7 @@ public class THApiTest {
 			response = ThApiClient.get(method, params);
 			System.out.println("Response Code : " + response.getStatusLine().getStatusCode());
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-			StringBuffer result = new StringBuffer();
+			StringBuilder result = new StringBuilder();
 			String line = "";
 			while ((line = bufferedReader.readLine()) != null) {
 				result.append(line);

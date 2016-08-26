@@ -10,7 +10,7 @@ $method = 'tuhao.data.charge';
 $params = [
 	'amount' => '10',
 	'area' => '0',
-	'mobile' => '13816371786',
+	'mobile' => '',
 	'roam' => '1',
 	'effecttime' => '0'
 ];

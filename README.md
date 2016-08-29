@@ -72,9 +72,6 @@ testapp_idtestformatjsonmethodtuhao.data.chargemobile13888888888sign_methodmd5ti
 
 
 
-
-
-
 ## 函数列表
 1. 流量充值 tuhao.data.charge
 2. 查询余额 tuhao.account.balance
@@ -82,9 +79,55 @@ testapp_idtestformatjsonmethodtuhao.data.chargemobile13888888888sign_methodmd5ti
 
 
 ### 流量充值
+#### 提交参数
+
+参数名称  	| 类型 		|   是否必须 	 | 示例	| 描述
+------- 	| --- 		| ----------- | ----| ----- 
+timestamp | Date 	| 是		| 2016-8-29 14:03 | 格式化时间戳  
+app_id 	| String	| 是		| JH6Ws3pL7Y9wCFQ  | 后台查看
+method		| String	| 固定值 	| tuhao.data.charge| 调用的方法名称
+sign 		| String 	| 是   	| bde20de7191e259a50c643a9313495d5 | 传入生成的签名
+v 			| Number 	| 固定值	| 1.0 | 版本号
+amount 	| Number 	| 是 		| 1024 | 流量包（amount < 1000 ? amount : amount * 1024）
+area		| Boolean | 是		| 0| 全国流量(0) \|\| 地方流量(1)
+roam 		| Boolean	| 否		| 1 | 不可漫游(0) \|\| 可漫游(1) - 默认值为1
+
+#### 流量充值提交返回参数
+
+参数名称  	| 类型 | 状态值	| 描述	 
+------- 	| --- |  -----	| ----- 
+status 	| String 	| success \|\| failed | 提交成功或者失败 
+info 		| String	| 订单提交成功 \|\| ...  | 订单提交成功或者失败返回的原因
+task_id	| String	| 20160829141509881606 | 订单提交成功后的订单号
 
 
-### 查询余额
+### 余额查询
+#### 提交参数
+参数名称  	| 类型 | 是否必须 | 示例	| 描述	 
+------- 	| --- | ------- | -----	| ----- 
+timestamp | Date 	| 是	| 2016-8-29 14:03 | 格式化时间戳  
+app_id 	| String	| 是	| JH6Ws3pL7Y9wCFQ  | 后台查看
+method		| String	| 固定值 | tuhao.account.balance| 调用的方法名称
+sign 		| String 	| 是   | bde20de7191e259a50c643a9313495d5| 传入生成的签名
+v 			| String 	| 固定值	| 1.0 | 版本号|
 
-### 充值回调
+#### 余额查询提交返回参数
+
+参数名称  	| 类型 | 状态值	| 描述	 
+------- 	| --- |  -----	| ----- 
+balance 	| Number 	| 100.00 | 返回余额
+
+
+### 充值回调推送
+#### 返回参数
+参数名称  	| 类型 | 状态值	| 描述	 
+------- 	| --- |  -----	| ----- 
+status 	| String 	| success \|\| error | 充值是否完成
+info 		| String	| 充值成功 \|\| 充值失败  | 充值信息
+task_id 	| String 	|  20160829141509881606 | tuhao.data.charge 传递的订单ID
+
+
+
+
+
 
